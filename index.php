@@ -6,3 +6,10 @@ $dotenv->load();
 
 //die(var_dump($_SERVER));
 $wallet = new Wallet($_ENV['Secret_Key']);
+$wallet->Details('MTN',2000,'08033377992,');
+try{
+    $output = $wallet->send();
+    var_dump($output);
+}catch (PDOException $e){
+    echo $e->getMessage();
+}

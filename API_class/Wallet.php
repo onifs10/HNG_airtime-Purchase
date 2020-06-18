@@ -25,8 +25,8 @@ class Wallet
             throw new \PDOException('connection failed');
         }
     }
-    public function Purchase(string $networkProvider,int $amount ,string $number ,string $secretKey){
-        $array = array('Code'=>$networkProvider,"Amount"=>$amount,"PhoneNumber"=>$networkProvider,"SecretKey"=>$secretKey);
+    public function Details(string $networkProvider,int $amount ,string $number ){
+        $array = array('Code'=>$networkProvider,"Amount"=>$amount,"PhoneNumber"=>$networkProvider,"SecretKey"=>$this->secretKey);
         $this->data = $array;
         return $this;
     }
