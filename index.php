@@ -7,6 +7,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.ico"/>
 </head>
 <body id="body">
 <header>
@@ -24,74 +27,95 @@
 
 <?php
 include_once __DIR__ . '/vendor/autoload.php';
-use Wallet\Wallet;
+use Wallet\{Wallet, TestClass};
 $dotenv =  Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 if(isset($_POST['submit'])){
-//    die('working');
-    $network = $_POST['network'];
-    $amount = intval($_POST['amount']);
-    $number = $_POST['number'];
-    $wallet = new Wallet($_ENV['purchase_url'],$_ENV['Secret_Key']);
-    $wallet->connect()->Details($network,$amount,$number);
     try{
+        TestClass::Country($_POST['country']);
+        $network = TestClass::testNetwork($_POST['network']);
+        $amount = TestClass::amount($_POST['amount']);
+        $number = TestClass::number($_POST['number']);
+        $wallet = new Wallet($_ENV['purchase_url'],$_ENV['Secret_Key']);
+        $wallet->connect()->Details($network,$amount,$number);
         $output = $wallet->send();
         $info = json_decode($output,true);
         $code = $info['ResponseCode'];
         switch ($code){
             case "100":
-                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="alert alert-success" role="alert">
- 	<strong>'.$info['Message'].'</strong> 
-</div>
-    </div>
-  </div>
-</div></div>
-<script>
-    $(document).ready(function(){
-        $("#myModal").modal(\'show\');
-    });
-</script>';
+                echo    '<div class="w-100">
+                            <div class="modal  fade bd-example-modal-lg pulse animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="alert alert-success" role="alert">
+                                                <strong>'.$info['Message'].'</strong> 
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $("#myModal").modal(\'show\');
+                            });
+                        </script>';
                 break;
             case "200":
-                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="alert alert-success" role="alert">
- 	<strong>'.$info['Message'].'</strong> 
-</div>
-    </div>
-  </div>
-</div></div>
-<script>
-    $(document).ready(function(){
-        $("#myModal").modal(\'show\');
-    });
-</script>';
+                echo    '<div class="w-100">
+                            <div class="modal  fade bd-example-modal-lg pulse animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="alert alert-primary" role="alert">
+                                                <strong>'.$info['Message'].'</strong> 
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $("#myModal").modal(\'show\');
+                            });
+                        </script>';
                 break;
             case "400":
-                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="alert alert-danger" role="alert">
- 	<strong>'.$info['Message'].'</strong> 
-</div>
-    </div>
-  </div>
-</div></div>
-<script>
-    $(document).ready(function(){
-        $("#myModal").modal(\'show\');
-    });
-</script>';
+                echo    '<div class="w-100">
+                            <div class="modal  fade bd-example-modal-lg pulse animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="alert alert-danger" role="alert">
+                                                <strong>'.$info['Message'].'</strong> 
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $("#myModal").modal(\'show\');
+                            });
+                        </script>';
                 break;
         }
 
     }catch (PDOException $e){
-        echo $e->getMessage();
+        echo '<div class="w-100">
+                            <div class="modal  fade bd-example-modal-lg pulse animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="alert alert-danger" role="alert">
+                                                <strong>'.$e->getMessage().'</strong> 
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $("#myModal").modal(\'show\');
+                            });
+                        </script>';
     }
 }
 
@@ -152,5 +176,3 @@ if(isset($_POST['submit'])){
 
     </body>
 </html>
-
-<
