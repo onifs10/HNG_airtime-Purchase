@@ -123,8 +123,10 @@ if(isset($_POST['submit'])){
 <div class="bg-cover">
     <p style="text-align: left; color:white; padding:2rem; margin-left:13rem;  padding-left:3rem; font-size:60px">Airtime Top Up</p>
 </div>
-<form class="user" action="#" method="POST">
-    <div class="form-container m-auto shadow ">
+<div class="row">
+    <div class="col col-lg-8 offset-lg2 m-auto  col-md-12  col-sm-12 p-sm-5 p-md-5 ">
+        <form class="user" action="#" method="POST">
+    <div class="form-container  shadow ">
         <h3 >Send to</h3>
         <div class="row">
             <div class="col-lg-6 col-md-12">
@@ -170,7 +172,9 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </form>
-
+    </div>
+</div>
+</div>
 
 
     </body>

@@ -108,8 +108,8 @@ header h1 {
 
 .form-container  {
     background: #f8f8f8;  
-    width: 65%;
-    height: 50%;
+    /*width: 65%;*/
+    /*height: 50%;*/
     margin-top: -9% !important;
     padding: 20px 30px;
     color: #4f4f4f;
