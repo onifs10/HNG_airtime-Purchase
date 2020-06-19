@@ -28,50 +28,14 @@
 <?php
 include_once __DIR__ . '/vendor/autoload.php';
 use Wallet\{Wallet, TestClass};
-register_shutdown_function( "fatal_handler" );
-
-function fatal_handler() {
-    $errfile = "unknown file";
-    $errstr  = "shutdown";
-    $errno   = E_CORE_ERROR;
-    $errline = 0;
-    $error = error_get_last();
-
-    if($error !== NULL) {
-        $errno   = $error["type"];
-        $errfile = $error["file"];
-        $errline = $error["line"];
-        $errstr  = $error["message"];
-        echo '<div class="w-100">
-                            <div class="modal  fade bd-example-modal-lg pulse animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="alert alert-danger" role="alert">
-                                                <strong>'.$errstr.'</strong> 
-                                         </div>
-                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <script>
-                            $(document).ready(function(){
-                                $("#myModal").modal(\'show\');
-                            });
-                        </script>';
-
-    }
-}
-
 
 if(isset($_POST['submit'])){
     try{
-        $dotenv =  Dotenv\Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
         TestClass::testCountry($_POST['country']);
         $network = TestClass::testNetwork($_POST['network']);
         $amount = TestClass::testAmount($_POST['amount']);
         $number = TestClass::testNumber($_POST['number']);
-        $wallet = new Wallet($_ENV['purchase_url'],$_ENV['Secret_Key']);
+        $wallet = new Wallet(getenv('purchase_url'),getenv('Secret_Key'));
         $wallet->connect()->Details($network,$amount,$number);
         $output = $wallet->send();
         $info = json_decode($output,true);

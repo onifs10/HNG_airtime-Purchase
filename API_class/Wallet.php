@@ -20,7 +20,7 @@ class Wallet
         if($this->curl){
             curl_setopt($this->curl, CURLOPT_RETURNTRANSFER,true);
             curl_setopt($this->curl, CURLOPT_POST, true);
-            curl_setopt($this->curl, CURLOPT_HTTPHEADER,['Content-Type: application/json','Authorization: Bearer '.$_ENV['Public_Key']]);
+            curl_setopt($this->curl, CURLOPT_HTTPHEADER,['Content-Type: application/json','Authorization: Bearer '.getenv('Public_Key')]);
             return $this;
         }else{
             throw new \PDOException('connection failed');
