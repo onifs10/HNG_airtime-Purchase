@@ -3,7 +3,10 @@
     "description": "airtime payment APP",
     "type": "project",
     "require": {
-        "vlucas/phpdotenv": "^5.0"
+        "vlucas/phpdotenv": "^5.0",
+        "ext-curl": "*",
+        "ext-pdo": "*",
+        "ext-json": "*"
     },
     "license": "MIT",
     "authors": [

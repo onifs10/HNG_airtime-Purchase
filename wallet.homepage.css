@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+header {
+    background: #04b4fb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 3%;
+    height: 160px;
+}
+
+
+.logo {
+    height: 127px;
+    cursor: pointer;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.nav-links {
+    list-style: none;
+}
+
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+
+.nav-links li a:hover {
+    color: #221f1f;
+
+}
+
+
+.space {
+    height: 10rem;
+    background:#f8f8f8
+}
+
+
+
+
+.bg-cover {
+    background-image: linear-gradient(to right, #04b4fb, transparent), url("images/bg-cover-1.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 45%; */
+    height: 316px;
+    
+}
+
+
+.bg-cover P {
+    color: white;
+    text-align: left;
+    padding: 2rem;
+    margin-left: 13rem;
+    padding-left: 3rem;
+    font-size: 60px; 
+}
+
+
+
+.form-container  {
+    background: #f8f8f8;  
+    width: 65%;
+    height: 50%;
+    margin-top: -9% !important;
+    padding: 20px 30px;
+    color: #4f4f4f;
+    border-radius:10px;
+}
+
+
+.form-container h3 {
+    font-weight: bold;
+}
+
+
+.form-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+
+
+.form-info__Ist-part {
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.form-group-country {
+    width: 47%;
+
+}
+
+.form-info-2 {
+    display:flex; 
+    justify-content: space-between; 
+    background-color: white; 
+    border-radius: 3px; 
+    padding:2rem;
+}
+
+
+
+.form-part-1,
+.form-part-2 {
+    display: flex;
+}
+
+
+.amount {
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background: white !important;
+    color: #04b4fb !important;
+}
+.btn-primary-new{
+    background-color: #049cfb !important;
+    color: white !important;
+    border-radius: 8px;
+}
+.send-btn-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+select, input{
+    border-radius:20px !important;
+}

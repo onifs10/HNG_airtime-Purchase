@@ -2,7 +2,7 @@
 namespace Wallet;
 class Wallet
 {
-    public $url = 'https://sandbox.wallets.africa/bills/airtime/purchase';
+    public $url;
     private $data;
     private $curl;
     /**
@@ -10,8 +10,9 @@ class Wallet
      */
     private $secretKey;
 
-    public function __construct(string $secretKey)
+    public function __construct(string $url ,string $secretKey)
     {
+        $this->url = $url;
         $this->secretKey = $secretKey;
     }
     public function connect(){
