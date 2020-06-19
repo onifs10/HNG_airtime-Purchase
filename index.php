@@ -39,8 +39,9 @@ if(isset($_POST['submit'])){
         $output = $wallet->send();
         $info = json_decode($output,true);
         $code = $info['ResponseCode'];
-//        die(var_dump($info));
-        echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        switch ($code){
+            case "100":
+                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
     <div class="alert alert-success" role="alert">
@@ -54,6 +55,41 @@ if(isset($_POST['submit'])){
         $("#myModal").modal(\'show\');
     });
 </script>';
+                break;
+            case "200":
+                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="alert alert-success" role="alert">
+ 	<strong>'.$info['Message'].'</strong> 
+</div>
+    </div>
+  </div>
+</div></div>
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal(\'show\');
+    });
+</script>';
+                break;
+            case "400":
+                echo '<div class="w-100"><div class="modal  fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="alert alert-danger" role="alert">
+ 	<strong>'.$info['Message'].'</strong> 
+</div>
+    </div>
+  </div>
+</div></div>
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal(\'show\');
+    });
+</script>';
+                break;
+        }
+
     }catch (PDOException $e){
         echo $e->getMessage();
     }
