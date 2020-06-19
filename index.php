@@ -33,10 +33,10 @@ $dotenv->load();
 
 if(isset($_POST['submit'])){
     try{
-        TestClass::Country($_POST['country']);
+        TestClass::testCountry($_POST['country']);
         $network = TestClass::testNetwork($_POST['network']);
-        $amount = TestClass::amount($_POST['amount']);
-        $number = TestClass::number($_POST['number']);
+        $amount = TestClass::testAmount($_POST['amount']);
+        $number = TestClass::testNumber($_POST['number']);
         $wallet = new Wallet($_ENV['purchase_url'],$_ENV['Secret_Key']);
         $wallet->connect()->Details($network,$amount,$number);
         $output = $wallet->send();

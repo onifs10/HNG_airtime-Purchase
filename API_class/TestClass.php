@@ -13,7 +13,7 @@ class TestClass
             return $input;
         }
     }
-    public static function Country($input){
+    public static function testCountry($input){
         if($input == "Select Country"){
             throw new \PDOException('Pls select Country');
         }else{
@@ -21,13 +21,13 @@ class TestClass
         }
 
     }
-    public static function number($input){
+    public static function testNumber($input){
         if(empty($input)){
             throw new \PDOException('Pls input number');
         }else{
             return $input;
         }
-    }public static function amount($input){
+    }public static function testAmount($input){
         if(empty($input)){
             throw new \PDOException('Pls input amount');
         }else{
