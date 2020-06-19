@@ -125,7 +125,7 @@ if(isset($_POST['submit'])){
 <div class="bg-cover">
     <p style="text-align: left; color:white; padding:2rem; margin-left:13rem;  padding-left:3rem; font-size:60px">Airtime Top Up</p>
 </div>
-<form class="user" action="index.php" method="POST">
+<form class="user" action="#" method="POST">
     <div class="form-container m-auto shadow ">
         <h3 >Send to</h3>
         <div class="row">
