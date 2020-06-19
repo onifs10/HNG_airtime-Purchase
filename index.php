@@ -60,6 +60,7 @@ if(isset($_POST['submit'])){
                                 $("#myModal").modal(\'show\');
                             });
                         </script>';
+                unset($_POST);
                 break;
             case "200":
                 echo    '<div class="w-100">
@@ -155,13 +156,13 @@ if(isset($_POST['submit'])){
             <div class="col-lg-6 col-md-12  ">
                 <div class="form-group " >
                     <label for="inputAmount">amount</label>
-                    <input required name="amount" type="text" class="form-control " id="inputAmount" placeholder="amount" style="height:50px;">
+                    <input required name="amount" type="text" class="form-control " id="inputAmount" placeholder="amount" style="height:50px;" value="<?php if(isset($_POST['amount'])) echo $_POST['amount']; ?>">
                 </div>
             </div>
             <div class="col-lg-6 col-md-12  ">
                 <div class="form-group " >
                     <label for="inputNumber">Mobile No</label>
-                    <input required name="number" type="text" class="form-control " id="inputNumber" placeholder="Number" style="height:50px;">
+                    <input required name="number" type="text" class="form-control " id="inputNumber" placeholder="Number" style="height:50px;" value="<?php if(isset($_POST['number'])) echo $_POST['number']; ?>">
                 </div>
             </div>
         </div>
