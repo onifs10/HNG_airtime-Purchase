@@ -28,11 +28,12 @@
 <?php
 include_once __DIR__ . '/vendor/autoload.php';
 use Wallet\{Wallet, TestClass};
-$dotenv =  Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+
 
 if(isset($_POST['submit'])){
     try{
+        $dotenv =  Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
         TestClass::testCountry($_POST['country']);
         $network = TestClass::testNetwork($_POST['network']);
         $amount = TestClass::testAmount($_POST['amount']);
