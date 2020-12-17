@@ -1,0 +1,136 @@
+    body {
+        padding-left: 300px;
+    }
+    
+    .main-container {
+        height: 170vh;
+        width: 50vw;
+        box-sizing: border-box;
+        border: 1px solid rgba(211, 211, 211, 0.993);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    header {
+        background: #67bdfc;
+        padding: 10px;
+        padding-left: 150px;
+    }
+    
+    h5 {
+        background: #fff;
+    }
+    
+    div {
+        width: 100%;
+        height: 50vh;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    
+    .content {
+        letter-spacing: 1px;
+        padding-left: 120px;
+        padding-top: 60px;
+        font-size: 35px;
+        line-height: 1.3;
+        color: white;
+    }
+    
+    .container {
+        width: 30vw;
+        height: 75vh;
+        background: snow;
+        margin-left: 165px;
+        margin-right: 60px;
+        margin-top: -60px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .min-container {
+        background: #fff;
+        padding: 15px;
+        height: 30vh;
+        box-sizing: border-box;
+    }
+    
+    h2 {
+        margin-top: 20px;
+    }
+    
+    h3 {
+        letter-spacing: 1px;
+        color: white;
+        font-size: 25px;
+        padding-left: 70px;
+    }
+    
+    h5 {
+        font-size: large;
+        padding-left: 120px;
+    }
+    
+    img {
+        position: absolute;
+        padding-top: 20px;
+    }
+    
+    p {
+        font-size: 13px;
+        color: #fff;
+        margin-top: -25px;
+        padding-left: 70px;
+    }
+    
+    .container>label {
+        padding: 15px;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: lightgray;
+    }
+    
+    #con {
+        width: 100%;
+        padding: 20px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: #fff;
+    }
+    
+    #min {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid gainsboro;
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: lightgray;
+    }
+    
+    #snd {
+        padding: 5px 5px;
+        width: 50%;
+        margin: 8px 0;
+        margin-left: 15em;
+        left: 24em;
+        background-color: #67bdfc;
+        border: #67bdfc;
+        color: #fff;
+        border-radius: 8px;
+    }
+    
+    footer {
+        background-color: #67bdfc;
+        padding: 10px;
+        margin-top: 29px;
+    }
+    
+    #ham {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+        margin-left: 25em;
+    }
